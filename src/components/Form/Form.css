@@ -1,0 +1,13 @@
+body{
+  display: grid;
+  justify-content: center;
+}
+.flex{
+  display: grid;
+  grid-template-columns: 70vh 70vh;
+  gap:20px
+}
+.center{
+  text-align: center;
+}
+
