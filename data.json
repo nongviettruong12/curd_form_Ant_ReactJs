@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "name": "nông việt trường··aaa",
+      "name": "nông việt trường··aaa update ",
       "birthday": "2024-07-16",
       "phone": "0888685163",
       "email": "nongviettruong12@gmail.com",
@@ -69,14 +69,14 @@
       "gender": "male",
       "other_phone": "",
       "status": "new",
-      "ssign_to": "351421419",
+      "assign_to": "351421419",
       "company_name": "abc",
       "career": "transfer",
       "department": "dev",
       "total_employee": 2,
       "country": "uk",
       "district": "hm",
-      "province": "hn",
+      "city": "hn",
       "address": "abca",
       "id": "f388"
     },
@@ -117,6 +117,25 @@
       "district": "tx",
       "city": "hcm",
       "address": "abc"
+    },
+    {
+      "name": "thang nay de sua xoa ok ",
+      "birthday": "2024-07-17",
+      "phone": "0888685163",
+      "email": "aduok@gmail.com",
+      "jugde": "idiot",
+      "gender": "male",
+      "status": "new",
+      "assign_to": "351421419",
+      "company_name": "BKHup",
+      "career": "construction",
+      "department": "media",
+      "total_employee": 4,
+      "country": "us",
+      "district": "hm",
+      "city": "hcm",
+      "address": "hà đông",
+      "id": "2d0d"
     }
   ]
 }

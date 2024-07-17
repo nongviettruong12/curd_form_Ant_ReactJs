@@ -15,7 +15,7 @@ export const CustomerTable = () => {
       key: "id",
     },
     {
-      title: "Name",
+      title: "Họ và tên",
       dataIndex: "name",
       key: "full_name",
     },
