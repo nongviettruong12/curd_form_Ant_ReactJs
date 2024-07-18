@@ -7,6 +7,7 @@ import {
   ProFormDigit,
 } from "@ant-design/pro-form";
 import './Form.css'
+import { Row, Col } from 'antd'
 import { useEffect, useState } from "react";
 import { useParams,useNavigate } from "react-router-dom";
 const FormLayoutUpdate = () => {
@@ -57,11 +58,13 @@ const FormLayoutUpdate = () => {
       title="Add form"
       initialValues={values}
     >
-      <h2 className="center">Form nhập thông tin khách hàng tiềm năng</h2>
+      <h2 className="center">Form sửa  thông tin khách hàng tiềm năng</h2>
       <div className="flex">
         <div className="label_1">
-          <h2>Thông tin khách hàng tiềm năng</h2>
-          <div className="columnOne">
+          <h2 className="center">Thông tin khách hàng tiềm năng</h2>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnOne">
             <ProFormText
               name="name"
               label="Name"
@@ -83,6 +86,7 @@ const FormLayoutUpdate = () => {
               name="phone"
               label="Phone"
               placeholder="nhập số điện thoại"
+              disabled={true}
               rules={[
                 { required: true, message: "Phone number is required" },
                 { min: 8, max: 11, message: "please enter your phone number" },
@@ -112,7 +116,9 @@ const FormLayoutUpdate = () => {
               hasFeedback
             />
           </div>
-          <div className="columnTwo">
+              </Col>
+              <Col span={12}>
+              <div className="columnTwo">
             <ProFormSelect
               name="gender"
               label="Giới tính"
@@ -156,10 +162,19 @@ const FormLayoutUpdate = () => {
               rules={[{ required: true, message: "please choose" }]}
             />
           </div>
+              </Col>
+          </Row>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              </Col>
+          </Row>
         </div>
         <div className="label_2">
-          <div className="columnThree">
-            <h2>Thông tin công ty</h2>
+          <h2 className="center">Thông tin công ty</h2>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnThree">
+            
             <ProFormText
               name="company_name"
               label="Tên công ty"
@@ -177,7 +192,9 @@ const FormLayoutUpdate = () => {
               ]}
             />
           </div>
-          <div className="columnFour">
+              </Col>
+              <Col span={12}>
+              <div className="columnFour">
             <ProFormSelect
               name="department"
               label="Phòng ban"
@@ -194,10 +211,15 @@ const FormLayoutUpdate = () => {
               placeholder="vui lòng nhập số lượng nhân viên"
             />
           </div>
+              </Col>
+          </Row>
         </div>
         <div className="label_3">
-          <div className="columnFive">
-            <h3>Thông tin địa chỉ</h3>
+           <h3 className="center">Thông tin địa chỉ</h3>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnFive">
+           
             <ProFormSelect
               name="country"
               label="Quốc gia"
@@ -222,7 +244,9 @@ const FormLayoutUpdate = () => {
               rules={[{ required: true, message: "please enter district" }]}
             />
           </div>
-          <div className="columnSix">
+              </Col>
+              <Col span={12}>
+              <div className="columnSix">
             <ProFormSelect
               name="city"
               label="Tỉnh/Thành"
@@ -240,6 +264,10 @@ const FormLayoutUpdate = () => {
               rules={[{ required: true, message: "please enter address" }]}
             />
           </div>
+              </Col>
+          </Row>
+         
+         
         </div>
       </div>
     </ProForm>

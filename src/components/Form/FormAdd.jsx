@@ -7,8 +7,8 @@ import {
   ProFormDigit,
 } from "@ant-design/pro-form";
 import './Form.css'
-
-const FormLayout = () => {
+import { Row, Col } from 'antd'
+const FormFake = () => {
 
   const handleSubmit = async (data) => {
     try {
@@ -32,8 +32,10 @@ const FormLayout = () => {
       <h2 className="center">Form nhập thông tin khách hàng tiềm năng</h2>
       <div className="flex">
         <div className="label_1">
-          <h2>Thông tin khách hàng tiềm năng</h2>
-          <div className="columnOne">
+          <h2 className="center">Thông tin khách hàng tiềm năng</h2>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnOne">
             <ProFormText
               name="name"
               label="Name"
@@ -84,7 +86,9 @@ const FormLayout = () => {
               hasFeedback
             />
           </div>
-          <div className="columnTwo">
+              </Col>
+              <Col span={12}>
+              <div className="columnTwo">
             <ProFormSelect
               name="gender"
               label="Giới tính"
@@ -128,10 +132,19 @@ const FormLayout = () => {
               rules={[{ required: true, message: "please choose" }]}
             />
           </div>
+              </Col>
+          </Row>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              </Col>
+          </Row>
         </div>
         <div className="label_2">
-          <div className="columnThree">
-            <h2>Thông tin công ty</h2>
+          <h2 className="center">Thông tin công ty</h2>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnThree">
+            
             <ProFormText
               name="company_name"
               label="Tên công ty"
@@ -149,7 +162,9 @@ const FormLayout = () => {
               ]}
             />
           </div>
-          <div className="columnFour">
+              </Col>
+              <Col span={12}>
+              <div className="columnFour">
             <ProFormSelect
               name="department"
               label="Phòng ban"
@@ -166,10 +181,15 @@ const FormLayout = () => {
               placeholder="vui lòng nhập số lượng nhân viên"
             />
           </div>
+              </Col>
+          </Row>
         </div>
         <div className="label_3">
-          <div className="columnFive">
-            <h3>Thông tin địa chỉ</h3>
+           <h3 className="center">Thông tin địa chỉ</h3>
+          <Row gutter={[16,16]}>
+              <Col span={12}>
+              <div className="columnFive">
+           
             <ProFormSelect
               name="country"
               label="Quốc gia"
@@ -194,7 +214,9 @@ const FormLayout = () => {
               rules={[{ required: true, message: "please enter district" }]}
             />
           </div>
-          <div className="columnSix">
+              </Col>
+              <Col span={12}>
+              <div className="columnSix">
             <ProFormSelect
               name="city"
               label="Tỉnh/Thành"
@@ -212,9 +234,13 @@ const FormLayout = () => {
               rules={[{ required: true, message: "please enter address" }]}
             />
           </div>
+              </Col>
+          </Row>
+         
+         
         </div>
       </div>
     </ProForm>
   );
 };
-export default FormLayout;
+export default FormFake;
