@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "name": "nông việt trường··aaa update ",
+      "full_name": "nông việt trườngupdat",
       "birthday": "2024-07-16",
       "phone": "0888685163",
       "email": "nongviettruong12@gmail.com",
@@ -22,7 +22,7 @@
     },
     {
       "id": "2",
-      "name": "nông việt trường··",
+      "full_name": "nông việt trường··",
       "birthday": "2024-07-16",
       "phone": "0888685163",
       "email": "nongviettruong12@gmail.com",
@@ -42,7 +42,7 @@
     },
     {
       "id": "3",
-      "name": "nông việt trường··",
+      "full_name": "nông việt trường··",
       "birthday": "2024-07-16",
       "phone": "0888685163",
       "email": "nongviettruong12@gmail.com",
@@ -61,24 +61,47 @@
       "address": "nguyễn khánh toàn"
     },
     {
-      "name": "user 123 update",
-      "birthday": "2024-07-18",
-      "phone": "08886851111",
-      "email": "ngcca2@gmail.com",
-      "jugde": "ugly",
+      "full_name": "nongviettruong",
+      "birthday": "2024-07-20",
+      "phone": "0888685163",
+      "email": "ngunguoils01@gmail.com",
+      "jugde": [
+        "handsome"
+      ],
       "gender": "female",
-      "other_phone": "",
+      "other_phone": "0888675221",
       "status": "new",
-      "assign_to": "123123123",
+      "assign_to": "351421419",
       "company_name": "abc",
-      "career": "transfer",
-      "department": "dev",
-      "total_employee": 2,
-      "country": "vn",
+      "career": "logistic",
+      "department": "media",
+      "total_employee": 3,
+      "country": "uk",
       "district": "hm",
       "city": "hn",
+      "address": "abcbd",
+      "id": "1c99"
+    },
+    {
+      "full_name": "nongviettruongabe",
+      "birthday": "2024-07-07T17:00:00.000Z",
+      "phone": "0888685163",
+      "email": "abcdef@gmail.com",
+      "jugde": [
+        "idiot"
+      ],
+      "gender": "male",
+      "status": "contact",
+      "assign_to": "351421419",
+      "company_name": "abc",
+      "career": "construction",
+      "department": "media",
+      "total_employee": 222,
+      "country": "vn",
+      "district": "tx",
+      "city": "hcm",
       "address": "abc",
-      "id": "c06d"
+      "id": "8686"
     }
   ]
 }

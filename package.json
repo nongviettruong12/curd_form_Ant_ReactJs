@@ -13,9 +13,12 @@
     "@ant-design/pro-components": "^2.7.10",
     "antd": "^5.19.2",
     "axios": "^1.7.2",
+    "dayjs": "^1.11.12",
     "json-server": "^1.0.0-beta.1",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-intl": "^6.6.8",
     "react-router-dom": "^6.24.1",
     "umi-request": "^1.4.0"
   },

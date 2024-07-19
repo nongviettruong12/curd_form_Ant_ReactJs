@@ -12,3 +12,10 @@
     border: 1px solid #d9d9d9;
     border-radius: 2px;
   }
+  .table_scroll{
+    width: 200vh;
+  }
+  .flex{
+    display: flex;
+  }
+

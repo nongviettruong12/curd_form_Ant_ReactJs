@@ -2,10 +2,8 @@ import { ProTable } from "@ant-design/pro-table";
 import { Button, Modal } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import "./Table.css";
 export const CustomerTable = () => {
-
-  
   const [dataSource, setDataSource] = useState([]);
 
   const columns = [
@@ -16,7 +14,7 @@ export const CustomerTable = () => {
     },
     {
       title: "Họ và tên",
-      dataIndex: "name",
+      dataIndex: "full_name",
       key: "full_name",
     },
     {
@@ -109,7 +107,7 @@ export const CustomerTable = () => {
     {
       title: "Action",
       render: (text, record) => (
-        <span>
+        <span className="flex">
           <Link to={`/update/${record.id}`}>
             <Button type="primary" style={{ marginRight: 8 }}>
               Update
@@ -130,7 +128,6 @@ export const CustomerTable = () => {
       },
     });
   };
-
   useEffect(() => {
     fetch("http://localhost:3000/user")
       .then((res) => res.json())
@@ -141,6 +138,7 @@ export const CustomerTable = () => {
   }, []);
   return (
     <ProTable
+      className="table_scroll"
       columns={columns}
       dataSource={dataSource}
       rowKey="id"
@@ -155,6 +153,7 @@ export const CustomerTable = () => {
           </Button>
         </Link>,
       ]}
+      scroll={{ x: 1 }}
     />
   );
 };
