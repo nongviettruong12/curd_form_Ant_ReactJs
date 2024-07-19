@@ -3,6 +3,7 @@ import { Button, Modal } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Table.css";
+import { message } from 'antd'
 export const CustomerTable = () => {
   const [dataSource, setDataSource] = useState([]);
 
@@ -126,6 +127,7 @@ export const CustomerTable = () => {
       title: `Are you sure you want to delete?`,
       onOk: () => {
         setDataSource((prev) => prev.filter((user) => user.id !== record.id));
+        message.success('xoa thanh cong')
       },
     });
   };
