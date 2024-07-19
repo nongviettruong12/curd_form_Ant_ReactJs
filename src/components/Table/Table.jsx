@@ -37,6 +37,7 @@ export const CustomerTable = () => {
     {
       title: "Đánh giá",
       dataIndex: "jugde",
+      valueType: "string",
       key: "jugde",
     },
     {

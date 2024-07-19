@@ -61,8 +61,95 @@
       "address": "nguyễn khánh toàn"
     },
     {
+      "id": "4af7",
       "full_name": "nongviettruong",
-      "birthday": "2024-07-20",
+      "birthday": "2024-07-19T09:40:27.300Z",
+      "phone": "0888685163",
+      "email": "ngunguo@gmail.com",
+      "jugde": [
+        "handsome"
+      ],
+      "gender": "male",
+      "status": "contact",
+      "assign_to": "351421419",
+      "company_name": "abccada",
+      "career": "transfer",
+      "department": "dev",
+      "total_employee": 4,
+      "country": "uk",
+      "district": "hm",
+      "city": "hn",
+      "address": "abcbd"
+    },
+    {
+      "full_name": "nongviettruong abcd",
+      "birthday": "2024-07-19T09:41:49.900Z",
+      "phone": "0888685163",
+      "email": "truongtkls@gmail.com",
+      "jugde": [
+        "handsome"
+      ],
+      "gender": "male",
+      "status": "new",
+      "assign_to": "351421419",
+      "company_name": "abccada",
+      "career": "transfer",
+      "department": "dev",
+      "total_employee": 1,
+      "country": "uk",
+      "district": "hm",
+      "city": "hcm",
+      "address": "abcb",
+      "id": "3542"
+    },
+    {
+      "id": "a882",
+      "full_name": "nongviettruong",
+      "birthday": "2024-07-19T09:50:17.500Z",
+      "phone": "0888685163",
+      "email": "ngunguoils01@gmail.com",
+      "jugde": [
+        "idiot"
+      ],
+      "gender": "male",
+      "status": "new",
+      "assign_to": "123123123",
+      "company_name": "abc",
+      "career": "construction",
+      "department": "tester",
+      "total_employee": 2,
+      "country": "uk",
+      "district": "bd",
+      "city": "hn",
+      "address": "abcd"
+    },
+    {
+      "id": "5052",
+      "full_name": "nongviettruong",
+      "birthday": "2024-07-19T09:55:52.000Z",
+      "phone": "0888685163",
+      "email": "ngunguo@gmail.com",
+      "jugde": [
+        "handsome"
+      ],
+      "gender": "male",
+      "other_phone": "0888675221",
+      "other_email": "ngungu2o@gmail.com",
+      "status": "new",
+      "assign_to": "351421412",
+      "company_name": "abc",
+      "career": "transfer",
+      "department": "dev",
+      "total_employee": 2,
+      "country": "vn",
+      "district": "hm",
+      "city": "hn",
+      "address": "abcbd"
+    },
+    {
+      "id": "3c0d",
+      "full_name": "nongviettruong",
+      "birthday": "2024-07-19T10:01:15.600Z",
       "phone": "0888685163",
       "email": "ngunguoils01@gmail.com",
       "jugde": [
@@ -70,38 +157,17 @@
       ],
       "gender": "female",
       "other_phone": "0888675221",
+      "other_email": "ngungu2o@gmail.com",
       "status": "new",
       "assign_to": "351421419",
       "company_name": "abc",
-      "career": "logistic",
+      "career": "transfer",
       "department": "media",
-      "total_employee": 3,
-      "country": "uk",
+      "total_employee": 2,
+      "country": "vn",
       "district": "hm",
       "city": "hn",
-      "address": "abcbd",
-      "id": "1c99"
-    },
-    {
-      "full_name": "nongviettruongabe",
-      "birthday": "2024-07-07T17:00:00.000Z",
-      "phone": "0888685163",
-      "email": "abcdef@gmail.com",
-      "jugde": [
-        "idiot"
-      ],
-      "gender": "male",
-      "status": "contact",
-      "assign_to": "351421419",
-      "company_name": "abc",
-      "career": "construction",
-      "department": "media",
-      "total_employee": 222,
-      "country": "vn",
-      "district": "tx",
-      "city": "hcm",
-      "address": "abc",
-      "id": "8686"
+      "address": "abcbd"
     }
   ]
 }

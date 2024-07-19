@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProFormDatePicker} from "@ant-design/pro-form";
 import "./Form.css";
-
+import { message } from "antd";
 const { Option } = Select;
 const renderField = (field) => {
   const {
@@ -169,6 +169,7 @@ export const FormLayoutUpdate = () => {
         },
         body: JSON.stringify(data),
       });
+      message.success('sua thanh cong')
       if (!response.ok) {
         throw new Error("Failed to update user");
       }
@@ -189,7 +190,9 @@ export const FormLayoutUpdate = () => {
           form={form}
           onFinish={async (formValues) => {
             await updateUser(id, formValues);
-            navigate("/");
+            setTimeout(() =>{
+              navigate("/");
+            }, 2000);
           }}
           layout="vertical"
           title="Add form"

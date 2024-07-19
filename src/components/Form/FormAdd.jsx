@@ -1,10 +1,10 @@
-import React from "react";
-import { Form, Input, Button, Select, InputNumber } from "antd";
+import { Form, Input, Button, Select, InputNumber} from "antd";
 import { ProFormDatePicker } from "@ant-design/pro-components";
 import { data } from "../../../thuc_tap";
 import { Col } from "antd";
 import "./Form.css";
-
+import React from "react";
+import { message } from "antd";
 const { Option } = Select;
 const renderField = (field) => {
   const {
@@ -93,7 +93,7 @@ const renderField = (field) => {
           >
             {listValue.map((item) => (
               <Option key={item.value} value={item.value}>
-                {item.label}
+                {item.label} 
               </Option>
             ))}
           </Select>
@@ -143,7 +143,9 @@ const renderGroup = (group) => {
 
 export const CustomerFormAdd = () => {
   const [form] = Form.useForm();
+  
 
+  
   const handleSubmit = async (values) => {
     try {
       const res = await fetch("http://localhost:3000/user", {
@@ -153,8 +155,11 @@ export const CustomerFormAdd = () => {
         },
         body: JSON.stringify(values),
       });
+      message.success('them moi thanh cong')
       console.log("Form Values:", res);
-      window.location = "http://localhost:5173";
+      setTimeout(() => {
+        window.location = "http://localhost:5173";
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -162,6 +167,7 @@ export const CustomerFormAdd = () => {
 
   return (
     <>
+   
       <h2 className="label_content">{data.label}</h2>
       <div className="form-container">
         <Form
@@ -179,7 +185,7 @@ export const CustomerFormAdd = () => {
             </div>
           </div>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="submit-button">
+            <Button type="primary" htmlType="submit" className="submit-button" >
               Gửi
             </Button>
           </Form.Item>
