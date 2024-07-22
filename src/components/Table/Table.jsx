@@ -109,16 +109,16 @@ export const CustomerTable = () => {
     {
       title: "Action",
       render: (text, record) => (
-        <span className="flex">
+        <div className="flex_button">
           <Link to={`/update/${record.id}`}>
-            <Button type="primary" style={{ marginRight: 8 }}>
+            <Button type="primary">
               Update
             </Button>
           </Link>
           <Button danger onClick={() => handleDelete(record)}>
             Delete
           </Button>
-        </span>
+        </div>
       ),
     },
   ];
@@ -148,7 +148,7 @@ export const CustomerTable = () => {
       search={false}
       pagination={{ pageSize: 5 }}
       dateFormatter="string"
-      headerTitle="Customer Information"
+      headerTitle="Quản lý khách hàng tiềm năng"
       toolBarRender={() => [
         <Link to={`/add`}>
           <Button key="add" type="primary">

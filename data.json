@@ -61,6 +61,29 @@
       "city": "hcm",
       "address": "nguyễn khánh toàn",
       "id": "3"
+    },
+    {
+      "id": "f2dd",
+      "full_name": "nongviettruong",
+      "birthday": "2024-07-22T07:23:00.600Z",
+      "phone": "0986935842",
+      "email": "ngunguo@gmail.com",
+      "jugde": [
+        "idiot"
+      ],
+      "gender": "male",
+      "other_phone": "0888675221",
+      "other_email": "ngungu2o@gmail.com",
+      "status": "new",
+      "assign_to": "351421416",
+      "company_name": "abc",
+      "career": "transfer",
+      "department": "dev",
+      "total_employee": 1,
+      "country": "us",
+      "district": "hm",
+      "city": "hn",
+      "address": "abcd"
     }
   ]
 }

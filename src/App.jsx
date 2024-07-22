@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { CustomerFormAdd } from "./components/Form/FormAdd";
+// import { CustomerFormAdd } from "./components/Form/FormAdd";
 import { CustomerTable } from './components/Table/Table';
-import FormLayoutUpdate from "./components/Form/FormUpdate";
+// import FormLayoutUpdate from "./components/Form/FormUpdate";
+import { CustomerForm } from "./components/Form/FormRefactor";
 function App() {
 
   return (
@@ -12,8 +13,8 @@ function App() {
     </div>
     <Routes>
       <Route path="/" element={<CustomerTable />}/>
-      <Route path="/add" element={<CustomerFormAdd/>}/>
-      <Route path="/update/:id" element={<FormLayoutUpdate/>}/>
+      <Route path="/add" element={<CustomerForm/>}/>
+      <Route path="/update/:id" element={<CustomerForm/>}/>
     </Routes>
     
     </>
