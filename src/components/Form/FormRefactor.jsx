@@ -1,40 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Button, Select, InputNumber, Col, message } from "antd";
+import { Form, Input, Button, Select, InputNumber, Col, message, Spin } from "antd";
 import { ProFormDatePicker } from "@ant-design/pro-components";
 import { data } from "../../../thuc_tap";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Form.css";
-
 const { Option } = Select;
 
-const renderField = ({
-  label,
-  fieldCode,
-  dataType,
-  fieldRequired,
-  fieldMultiSelect,
-  fieldReadOnly,
-  listValue,
-}) => {
-  const commonProps = {
-    key: fieldCode,
-    label: label,
-    name: fieldCode,
-    rules: [{ required: fieldRequired, message: `${label} is required` }],
-    className: "form-item",
-  };
+const renderField = (field, mode) => {
+  const {
+    label,
+    fieldCode,
+    dataType,
+    fieldRequired,
+    fieldMultiSelect,
+    fieldReadOnly,
+    listValue,
+  } = field;
+
+  const {id} = useParams();
 
   switch (dataType) {
     case "string":
       return (
-        <Form.Item {...commonProps}>
-          <Input disabled={fieldReadOnly} />
+        <Form.Item
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
+          className="form-item"
+        >
+          <Input disabled={id && fieldReadOnly}  />
         </Form.Item>
       );
     case "user":
-    case "list":
       return (
-        <Form.Item {...commonProps}>
+        <Form.Item
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
+          className="form-item"
+        >
           <Select
             mode={fieldMultiSelect ? "multiple" : null}
             disabled={fieldReadOnly}
@@ -50,26 +56,61 @@ const renderField = ({
     case "date":
       return (
         <ProFormDatePicker
-          {...commonProps}
+        format="YYYY-MM-DD HH:mm:ss"
+        fieldProps={{ format: 'YYYY-MM-DD HH:mm:ss',}}
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
           disabled={fieldReadOnly}
-          dataFormat="YYYY-MM-DD"
+          className="form-item"
         />
       );
     case "email":
       return (
         <Form.Item
-          {...commonProps}
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
           rules={[
             { required: fieldRequired, message: `${label} is required` },
             { type: "email", message: "Invalid email" },
           ]}
+          className="form-item"
         >
           <Input disabled={fieldReadOnly} />
         </Form.Item>
       );
+    case "list":
+      return (
+        <Form.Item
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
+          className="form-item"
+        >
+          <Select
+            mode={fieldMultiSelect ? "multiple" : Array}
+            disabled={fieldReadOnly}
+          >
+            {listValue.map((item) => (
+              <Option key={item.value} value={item.value}>
+                {item.label}
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
+      );
     case "number":
       return (
-        <Form.Item {...commonProps}>
+        <Form.Item
+          key={fieldCode}
+          label={label}
+          name={fieldCode}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
+          className="form-item"
+        >
           <InputNumber disabled={fieldReadOnly} />
         </Form.Item>
       );
@@ -78,24 +119,30 @@ const renderField = ({
   }
 };
 
-const renderCol = (col) => (
-  <Col span={12} key={col.id} className="form-col">
-    {col.fieldList.map(renderField)}
-  </Col>
-);
+const renderCol = (col) => {
+  return (
+    <Col span={12} key={col.id} className="form-col">
+      {col.fieldList.map((field) => renderField(field))}
+    </Col>
+  );
+};
 
-const renderRow = (row) => (
-  <div key={row.id} className="form-row">
-    {row.colList.map(renderCol)}
-  </div>
-);
+const renderRow = (row) => {
+  return (
+    <div key={row.id} className="form-row">
+      {row.colList.map((col) => renderCol(col))}
+    </div>
+  );
+};
 
-const renderGroup = (group) => (
-  <div key={group.id} className="form-group">
-    <h3 className="form-title">{group.label}</h3>
-    {group.rowList.map(renderRow)}
-  </div>
-);
+const renderGroup = (group) => {
+  return (
+    <div key={group.id} className="form-group">
+      <h3 className="form-title">{group.label}</h3>
+      {group.rowList.map((row) => renderRow(row))}
+    </div>
+  );
+};
 
 export const CustomerForm = () => {
   const navigate = useNavigate();
@@ -125,12 +172,13 @@ export const CustomerForm = () => {
         },
         body: JSON.stringify(values),
       });
-
+      
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
 
       message.success(id ? 'Updated successfully' : 'Added successfully');
+      <Spin>loading...</Spin>
       setTimeout(() => {
         navigate("/");
       }, 2000);
@@ -140,7 +188,7 @@ export const CustomerForm = () => {
     }
   };
 
-  if (id && !values) return "Loading...";
+  if (id && !values) return <Spin>loading</Spin>;
 
   return (
     <>
@@ -163,7 +211,7 @@ export const CustomerForm = () => {
           </div>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="submit-button">
-              Submit
+              Gửi
             </Button>
           </Form.Item>
         </Form>

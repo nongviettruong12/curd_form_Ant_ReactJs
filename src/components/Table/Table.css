@@ -1,4 +1,4 @@
-.editable-cell {
+/* .editable-cell {
     position: relative;
   }
   
@@ -11,7 +11,7 @@
     padding: 4px 11px;
     border: 1px solid #d9d9d9;
     border-radius: 2px;
-  }
+  } */
   .table_scroll{
     width: 200vh;
   }
@@ -22,4 +22,61 @@
   display: flex;
   gap: 10px;
 }
+/* css title nam tren 1 dong */
+/* .ant-table-thead > tr > th {
+  white-space: nowrap;
+}
 
+.ant-table-cell {
+  text-align: center;
+  padding: 8px;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  padding: 8px 16px;
+}
+
+.flex_button {
+  display: flex;
+  gap: 10px;
+}
+
+.table_scroll .ant-table {
+  table-layout: fixed;
+}
+
+.table_scroll .ant-table-thead > tr > th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+ /* ca noi dung va title nam tren 1 dong */
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+.ant-table-thead > tr > th {
+  background-color: #f5f5f5;
+}
+
+.flex_button {
+  display: flex;
+  gap: 10px;
+}
+
+.table_scroll .ant-table {
+  table-layout: fixed;
+}
+
+.table_scroll .ant-table-thead > tr > th,
+.table_scroll .ant-table-tbody > tr > td {
+  padding: 8px 16px;
+  white-space: nowrap;
+}
