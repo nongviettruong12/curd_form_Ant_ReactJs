@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./Table.css";
 import { message } from "antd";
 import { data } from "../../../thuc_tap";
+import TestModal from "../Form/testModal";
 export const CustomerTable = () => {
   const getListValues = () => {
     const values = [];
@@ -207,7 +208,10 @@ export const CustomerTable = () => {
       render: (text, record) => (
         <div className="flex_button">
           <Link to={`/update/${record.id}`}>
-            <Button type="primary">Sửa</Button>
+          <Button type="primary" onClick={(e) => TestModal(record)}>
+            sửa
+          </Button>
+          {/* <TestModal/> */}
           </Link>
           <Button danger onClick={() => handleDelete(record)}>
             Xóa
@@ -244,11 +248,7 @@ export const CustomerTable = () => {
       dateFormatter="number"
       headerTitle="Quản lý khách hàng tiềm năng"
       toolBarRender={() => [
-        <Link to={`/add`}>
-          <Button key="add" type="primary">
-            Thêm mới
-          </Button>
-        </Link>,
+        <TestModal/>
       ]}
       scroll={{ x: 1 }}
     />

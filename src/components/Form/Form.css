@@ -10,7 +10,7 @@
 .form-container {
   padding: 20px;
   display: flex;
-  margin-left: 340px;
+  /* margin-left: 340px; */
 }
 
 .form-title {
@@ -53,5 +53,5 @@ body{
 }
 .label_content {
   text-align: center;
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }

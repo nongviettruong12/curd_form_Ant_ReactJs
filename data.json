@@ -8,9 +8,7 @@
       "jugde": [
         "idiot"
       ],
-      "gender": [
-        "female"
-      ],
+      "gender": "female",
       "other_phone": "",
       "status": "contact",
       "assign_to": "123123123",
@@ -23,93 +21,6 @@
       "city": "hn",
       "address": "nguyễn khánh toàn",
       "id": "1"
-    },
-    {
-      "id": "f0dd",
-      "full_name": "nongviettruong",
-      "birthday": "2024-07-23 16:36:06",
-      "phone": "0888685163",
-      "email": "ngunguo@gmail.com",
-      "jugde": [
-        "handsome"
-      ],
-      "gender": "male",
-      "other_phone": "0888675221",
-      "other_email": "ngungu2o@gmail.com",
-      "status": "new",
-      "assign_to": "123123123",
-      "company_name": "abc",
-      "career": "transfer",
-      "department": "tester",
-      "total_employee": 1,
-      "country": "vn",
-      "district": "bd",
-      "city": "hn",
-      "address": "abcd"
-    },
-    {
-      "full_name": "nongviettruong",
-      "birthday": "2024-07-23 16:36:06",
-      "phone": "0888685163",
-      "email": "truongnvph20296@fpt.edu.vn",
-      "jugde": [
-        "handsome"
-      ],
-      "gender": "female",
-      "status": "contact",
-      "assign_to": "351421419",
-      "company_name": "avc",
-      "career": "logistic",
-      "department": "tester",
-      "total_employee": 2,
-      "country": "vn",
-      "district": "hm",
-      "city": "hn",
-      "address": "abcbd",
-      "id": "769e"
-    },
-    {
-      "full_name": "nongviettruong",
-      "birthday": "2024-07-23T09:45:40.100Z",
-      "phone": "0888685163",
-      "email": "truongtkls@yahoo.com",
-      "jugde": [
-        "handsome"
-      ],
-      "gender": "female",
-      "status": "new",
-      "assign_to": "351421419",
-      "company_name": "abccada",
-      "career": "transfer",
-      "department": "media",
-      "total_employee": 3,
-      "country": "vn",
-      "district": "hm",
-      "city": "hn",
-      "address": "abcd",
-      "id": "d627"
-    },
-    {
-      "full_name": "nongviettruong",
-      "birthday": "2024-07-23T09:57:33.300Z",
-      "phone": "0888685163",
-      "email": "ngunguo@gmail.com",
-      "jugde": [
-        "idiot"
-      ],
-      "gender": "male",
-      "other_phone": "0888675221",
-      "status": "new",
-      "assign_to": "123123123",
-      "company_name": "abc",
-      "career": "transfer",
-      "department": "tester",
-      "total_employee": 3,
-      "country": "vn",
-      "district": "hm",
-      "city": "hn",
-      "address": "abcbd",
-      "id": "5f97"
     }
   ]
 }
