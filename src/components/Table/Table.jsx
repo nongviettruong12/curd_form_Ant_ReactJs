@@ -1,12 +1,13 @@
 import { ProTable } from "@ant-design/pro-table";
 import { Button, Modal, Space } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Table.css";
 import { message } from "antd";
 import { data } from "../../../thuc_tap";
 import TestModal from "../Form/testModal";
 export const CustomerTable = () => {
+  const actionRef = useRef();
   const getListValues = () => {
     const values = [];
     data.displayConfig.groupList.forEach((group) => {
@@ -23,9 +24,9 @@ export const CustomerTable = () => {
     return values;
   };
   const listValues = getListValues(data);
-  // console.log("adu", listValues);
 
   const [dataSource, setDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
   const columns = [
     {
       title: "id",
@@ -42,7 +43,7 @@ export const CustomerTable = () => {
       dataIndex: "birthday",
       key: "birthday",
       valueType: "dateTime",
-      format: 'YYYY-MM-DD HH:mm:ss',
+      format: "YYYY-MM-DD HH:mm:ss",
     },
     {
       title: "Số điện thoại",
@@ -80,7 +81,7 @@ export const CustomerTable = () => {
       dataIndex: "gender",
       key: "gender",
       render: (data, record) => {
-        return <span>{record.gender === 'female' ? 'Nữ' : 'Nam'}</span>
+        return <span>{record.gender === "female" ? "Nữ" : "Nam"}</span>;
       },
     },
     {
@@ -98,7 +99,7 @@ export const CustomerTable = () => {
       dataIndex: "status",
       key: "status",
       render: (data, record) => {
-        return <span>{record.status === 'new' ? 'Mới' : 'Đã liên hệ'}</span>
+        return <span>{record.status === "new" ? "Mới" : "Đã liên hệ"}</span>;
       },
     },
     {
@@ -107,14 +108,14 @@ export const CustomerTable = () => {
       key: "assign_to",
       render: (_, record) => {
         switch (record.assign_to) {
-          case '123123123':
-            return 'Đạt 09'
-          case '351421412':
-            return 'Trung Đại Ca'
-          case '351421416':
-            return 'ThangDT'
-          case '351421419':
-            return 'Cường Đzai 1102'
+          case "123123123":
+            return "Đạt 09";
+          case "351421412":
+            return "Trung Đại Ca";
+          case "351421416":
+            return "ThangDT";
+          case "351421419":
+            return "Cường Đzai 1102";
         }
       },
     },
@@ -129,12 +130,12 @@ export const CustomerTable = () => {
       key: "career",
       render: (data, record) => {
         switch (record.career) {
-          case 'transfer':
-            return 'Vận tải'
-          case 'logistic':
-            return 'Chuỗi cung ứng hàng hóa'
-          case 'construction':
-            return 'Xây dựng'
+          case "transfer":
+            return "Vận tải";
+          case "logistic":
+            return "Chuỗi cung ứng hàng hóa";
+          case "construction":
+            return "Xây dựng";
         }
       },
     },
@@ -144,12 +145,12 @@ export const CustomerTable = () => {
       key: "department",
       render: (data, record) => {
         switch (record.department) {
-          case 'media':
-            return 'Phòng truyền thông'
-          case 'tester':
-            return 'Phòng đảm bảo chất lượng'
-          case 'dev':
-            return 'Phòng phát triển'
+          case "media":
+            return "Phòng truyền thông";
+          case "tester":
+            return "Phòng đảm bảo chất lượng";
+          case "dev":
+            return "Phòng phát triển";
         }
       },
     },
@@ -164,12 +165,12 @@ export const CustomerTable = () => {
       key: "country",
       render: (data, record) => {
         switch (record.country) {
-          case 'vn':
-            return 'Việt Nam'
-          case 'us':
-            return 'Mỹ'
-          case 'uk':
-            return 'Anh'
+          case "vn":
+            return "Việt Nam";
+          case "us":
+            return "Mỹ";
+          case "uk":
+            return "Anh";
         }
       },
     },
@@ -179,14 +180,14 @@ export const CustomerTable = () => {
       key: "district",
       render: (data, record) => {
         switch (record.country) {
-          case 'dd':
-            return 'Đống Đa'
-          case 'tx':
-            return 'Thanh Xuân'
-          case 'bd':
-            return 'Ba Đình'
-            case 'hm':
-            return 'Hoàng Mai'
+          case "dd":
+            return "Đống Đa";
+          case "tx":
+            return "Thanh Xuân";
+          case "bd":
+            return "Ba Đình";
+          case "hm":
+            return "Hoàng Mai";
         }
       },
     },
@@ -195,7 +196,9 @@ export const CustomerTable = () => {
       dataIndex: "city",
       key: "city",
       render: (data, record) => {
-        return <span>{record.city === 'hn' ? 'Hà Nội' : 'TP Hồ Chí Minh'}</span>
+        return (
+          <span>{record.city === "hn" ? "Hà Nội" : "TP Hồ Chí Minh"}</span>
+        );
       },
     },
     {
@@ -208,10 +211,10 @@ export const CustomerTable = () => {
       render: (text, record) => (
         <div className="flex_button">
           <Link to={`/update/${record.id}`}>
-          <Button type="primary" onClick={(e) => TestModal(record)}>
-            sửa
-          </Button>
-          {/* <TestModal/> */}
+            <Button type="primary">
+              sửa
+            </Button>
+            {/* <TestModal/> */}
           </Link>
           <Button danger onClick={() => handleDelete(record)}>
             Xóa
@@ -224,32 +227,40 @@ export const CustomerTable = () => {
     Modal.confirm({
       title: `Are you sure you want to delete?`,
       onOk: () => {
+        setLoading(true);
         setDataSource((prev) => prev.filter((user) => user.id !== record.id));
+        setLoading(false);
         message.success("xoa thanh cong");
       },
     });
   };
   useEffect(() => {
-    fetch("http://localhost:3000/user")
+    setLoading(true)
+    setTimeout(() => {
+      fetch("http://localhost:3000/user")
       .then((res) => res.json())
       .then((result) => {
         setDataSource(result);
-        // console.log("data", result);
+        setLoading(false)
       });
+    }, 2000);
+    
   }, []);
   return (
     <ProTable
       className="table_scroll"
       columns={columns}
+      actionRef={actionRef}
       dataSource={dataSource}
       rowKey="id"
       search={false}
-      pagination={{ pageSize: 5 }}
+      loading={loading}
+      pagination={{ pageSize: 6 }}
       dateFormatter="number"
       headerTitle="Quản lý khách hàng tiềm năng"
-      toolBarRender={() => [
-        <TestModal/>
-      ]}
+      toolBarRender={() => 
+        [<TestModal />] 
+      }
       scroll={{ x: 1 }}
     />
   );

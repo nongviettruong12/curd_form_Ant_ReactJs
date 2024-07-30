@@ -1,6 +1,6 @@
-import { PlusOutlined} from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 import { ModalForm } from "@ant-design/pro-components";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import {
   Form,
   Input,
@@ -17,11 +17,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./Form.css";
 const { Option } = Select;
 
-const checkDuplicateEmail = async (email) => {
+const checkDuplicateEmail = async (email, currentId) => {
   try {
     const response = await fetch("http://localhost:3000/user");
     const data = await response.json();
-    return data.some((user) => user.email === email);
+    return data.some((user) => user.email === email && user.id !== currentId);
   } catch (error) {
     console.error("Error checking duplicate email:", error);
     return false;
@@ -48,9 +48,7 @@ const renderField = (field) => {
           key={fieldCode}
           label={label}
           name={fieldCode}
-          rules={[
-            { required: fieldRequired, message: `${label} is required` },
-          ]}
+          rules={[{ required: fieldRequired, message: `${label} is required` }]}
           className="form-item"
         >
           <Input disabled={id && fieldReadOnly} />
@@ -100,7 +98,6 @@ const renderField = (field) => {
           rules={[
             { required: fieldRequired, message: `${label} is required` },
             { type: "email", message: "Invalid email" },
-            {}
           ]}
           className="form-item"
         >
@@ -170,7 +167,7 @@ const renderGroup = (group) => {
   );
 };
 
-const waitTime = (time =100) => {
+const waitTime = (time = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
@@ -183,7 +180,7 @@ const TestModal = () => {
   const { id } = useParams();
   const [form] = Form.useForm();
   const [values, setValues] = useState(null);
-  
+  const actionRef = useRef();
   useEffect(() => {
     if (id) {
       fetch(`http://localhost:3000/user/${id}`)
@@ -197,34 +194,31 @@ const TestModal = () => {
 
   const handleSubmit = async (values) => {
     try {
-      const duplicate = await checkDuplicateEmail(values.email);
-    if (duplicate && !id) {
-      message.error("Email đã tồn tại");
-      return;
-    }
+      const duplicate = await checkDuplicateEmail(values.email, id);
+      console.log("Duplicate email", values.email);
+      if (duplicate) {
+        message.error("Email đã tồn tại");
+        return;
+      }
       const url = id
         ? `http://localhost:3000/user/${id}`
         : "http://localhost:3000/user";
       const method = id ? "PUT" : "POST";
-      await waitTime(2000)
+      await waitTime(2000);
       const response = await fetch(url, {
         method,
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-        
       });
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
-      
+
       message.success(id ? "Updated successfully" : "Added successfully");
-      navigate(`/`)
-      setTimeout(() => {
-      },2000)
-      
+      navigate('/')
     } catch (error) {
       console.error("Error submitting form:", error);
       message.error("Error submitting form");
@@ -235,22 +229,20 @@ const TestModal = () => {
   return (
     <>
       <ModalForm
-        
         trigger={
           <Button type="primary">
             <PlusOutlined />
-           thêm mới
-          </Button> 
+            thêm mới
+          </Button>
         }
-        
         form={form}
         autoFocusFirstInput
-        
         onFinish={handleSubmit}
         initialValues={values}
         modalProps={{
           destroyOnClose: true,
-          onCancel: () => console.log("run"),
+          onCancel: () => window.location.reload(),
+            // console.log("run"),
         }}
         submitTimeout={2000}
       >
@@ -265,11 +257,6 @@ const TestModal = () => {
               {renderGroup(data.displayConfig.groupList[2])}
             </div>
           </div>
-          {/* <Form.Item>
-            <Button type="primary" htmlType="submit" className="submit-button">
-              Gửi
-            </Button>
-          </Form.Item> */}
         </div>
       </ModalForm>
     </>
