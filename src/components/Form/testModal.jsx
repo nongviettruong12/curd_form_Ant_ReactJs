@@ -1,6 +1,6 @@
 import { PlusOutlined } from "@ant-design/icons";
 import { ModalForm } from "@ant-design/pro-components";
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   Input,
@@ -180,7 +180,8 @@ const TestModal = () => {
   const { id } = useParams();
   const [form] = Form.useForm();
   const [values, setValues] = useState(null);
-  const actionRef = useRef();
+  const [loading,setLoading] = useState(false);
+
   useEffect(() => {
     if (id) {
       fetch(`http://localhost:3000/user/${id}`)
@@ -218,7 +219,8 @@ const TestModal = () => {
       }
 
       message.success(id ? "Updated successfully" : "Added successfully");
-      navigate('/')
+      navigate(`/`);
+      setTimeout(() => {}, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
       message.error("Error submitting form");
@@ -241,7 +243,7 @@ const TestModal = () => {
         initialValues={values}
         modalProps={{
           destroyOnClose: true,
-          onCancel: () => window.location.reload(),
+          onCancel: () => window.location.reload()
             // console.log("run"),
         }}
         submitTimeout={2000}

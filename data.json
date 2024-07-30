@@ -65,67 +65,20 @@
       "address": "Cầu Diễn Bắc Từ Liêm Hà Nội "
     },
     {
-      "id": "f2143",
-      "full_name": "Nguyễn Văn C ",
-      "birthday": "2024-07-26 14:00:00",
-      "phone": "19008198",
-      "email": "admin2@gmail.com.vn",
+      "id": "1499",
+      "full_name": "adadadada",
+      "phone": "6",
+      "email": "cacava2@gmail.com",
       "jugde": [
         "handsome"
       ],
-      "gender": "male",
       "status": "new",
       "assign_to": "123123123",
-      "company_name": "TNHH Vạn Phúc ",
-      "career": "construction",
-      "department": "dev",
-      "total_employee": 1,
-      "country": "uk",
-      "district": "tx",
-      "city": "hcm",
-      "address": "Cầu Diễn Bắc Từ Liêm Hà Nội "
-    },
-    {
-      "full_name": "Nguyễn Văn D ",
-      "birthday": "2024-07-26 14:00:00",
-      "phone": "19008198",
-      "email": "admin3@gmail.com.vn",
-      "jugde": [
-        "handsome"
-      ],
-      "gender": "male",
-      "status": "new",
-      "assign_to": "123123123",
-      "company_name": "TNHH Vạn Phúc ",
-      "career": "construction",
-      "department": "dev",
-      "total_employee": 1,
-      "country": "uk",
-      "district": "tx",
+      "company_name": "ab",
+      "country": "vn",
+      "district": "bd",
       "city": "hn",
-      "address": "Cầu Diễn Bắc Từ Liêm Hà Nội ",
-      "id": "f2144"
-    },
-    {
-      "full_name": "Nguyễn Thị F  ",
-      "birthday": "2024-07-26 14:00:00",
-      "phone": "19008198",
-      "email": "adminX@gmail.com.vn",
-      "jugde": [
-        "handsome"
-      ],
-      "gender": "female",
-      "status": "new",
-      "assign_to": "123123123",
-      "company_name": "TNHH Vạn Phúc ",
-      "career": "construction",
-      "department": "dev",
-      "total_employee": 1,
-      "country": "uk",
-      "district": "tx",
-      "city": "hcm",
-      "address": "Cầu Diễn Bắc Từ Liêm Hà Nội ",
-      "id": "f21422"
+      "address": "abc"
     }
   ]
 }

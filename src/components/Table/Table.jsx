@@ -27,6 +27,8 @@ export const CustomerTable = () => {
 
   const [dataSource, setDataSource] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [editingRecord, setEditingRecord] = useState(null);
   const columns = [
     {
       title: "id",
@@ -210,12 +212,19 @@ export const CustomerTable = () => {
       title: "Hành động",
       render: (text, record) => (
         <div className="flex_button">
-          <Link to={`/update/${record.id}`}>
+          {/* <Link to={`/update/${record.id}`}>
             <Button type="primary">
               sửa
             </Button>
-            {/* <TestModal/> */}
-          </Link>
+          </Link> */}
+          <Button
+            type="primary"
+            onClick={() =>{
+              <TestModal/>
+            }}
+          >
+            sửa
+          </Button>
           <Button danger onClick={() => handleDelete(record)}>
             Xóa
           </Button>
@@ -247,6 +256,7 @@ export const CustomerTable = () => {
     
   }, []);
   return (
+    <div>
     <ProTable
       className="table_scroll"
       columns={columns}
@@ -258,10 +268,12 @@ export const CustomerTable = () => {
       pagination={{ pageSize: 6 }}
       dateFormatter="number"
       headerTitle="Quản lý khách hàng tiềm năng"
-      toolBarRender={() => 
-        [<TestModal />] 
-      }
+      toolBarRender={() => [
+        <TestModal/>
+      ]}
       scroll={{ x: 1 }}
     />
+   
+    </div>
   );
 };
