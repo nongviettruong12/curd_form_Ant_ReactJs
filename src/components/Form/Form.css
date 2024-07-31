@@ -1,9 +1,9 @@
-.flex{
+.flex {
   display: grid;
   grid-template-columns: 70vh 70vh;
-  gap:20px
+  gap: 20px;
 }
-.center{
+.center {
   text-align: center;
 }
 /* css Form */
@@ -43,12 +43,11 @@
   margin-top: 20px;
   float: right;
 }
-.form-row{
+.form-row {
   display: flex;
   gap: 20px;
-  
 }
-body{
+body {
   display: flex;
 }
 .label_content {

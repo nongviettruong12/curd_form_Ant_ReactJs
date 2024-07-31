@@ -94,7 +94,6 @@ const renderField = (field) => {
           key={fieldCode}
           label={label}
           name={fieldCode}
-          
           rules={[
             { required: fieldRequired, message: `${label} is required` },
             { type: "email", message: "Invalid email" },
@@ -177,9 +176,9 @@ const waitTime = (time = 100) => {
 };
 
 const handleSelect = () => {
-  const selectDropdown = document.querySelector('.ant-select-dropdown');
+  const selectDropdown = document.querySelector(".ant-select-dropdown");
   if (selectDropdown) {
-    selectDropdown.classList.add('ant-select-dropdown-hidden');
+    selectDropdown.classList.add("ant-select-dropdown-hidden");
   }
 };
 
@@ -188,15 +187,14 @@ const TestModal = ({ record, isAdding, closeModal }) => {
   const { id } = useParams();
   const [form] = Form.useForm();
   const [values, setValues] = useState(null);
-  // const [loading, setLoading] = useState(false)
   useEffect(() => {
     if (record && !isAdding) {
-        setValues(record);
-        form.setFieldsValue(record);
+      setValues(record);
+      form.setFieldsValue(record);
     } else {
-        form.resetFields();
+      form.resetFields();
     }
-}, [record, isAdding, form]);
+  }, [record, isAdding, form]);
   const handleSubmit = async (values) => {
     try {
       const duplicate = await checkDuplicateEmail(values.email, record?.id);
@@ -206,31 +204,31 @@ const TestModal = ({ record, isAdding, closeModal }) => {
         return;
       }
       const url = isAdding
-            ? "http://localhost:3000/user"
-            : `http://localhost:3000/user/${record?.id}`;
-        const method = isAdding ? "POST" : "PUT";
-        
-        await waitTime(2000);
-        const response = await fetch(url, {
-            method,
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-        });
+        ? "http://localhost:3000/user"
+        : `http://localhost:3000/user/${record?.id}`;
+      const method = isAdding ? "POST" : "PUT";
 
-        if (!response.ok) {
-            throw new Error("Failed to submit form");
-        }
+      await waitTime(2000);
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-        message.success(isAdding ? "Added successfully" : "Updated successfully");
-        setTimeout(() => {
-            window.location.reload();
-            navigate("/");
-        }, 2000);
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      message.success(isAdding ? "Added successfully" : "Updated successfully");
+      setTimeout(() => {
+        window.location.reload();
+        navigate("/");
+      }, 2000);
     } catch (error) {
-        console.error("Error submitting form:", error);
-        message.error("Error submitting form");
+      console.error("Error submitting form:", error);
+      message.error("Error submitting form");
     }
   };
 
@@ -241,13 +239,12 @@ const TestModal = ({ record, isAdding, closeModal }) => {
         form={form}
         autoFocusFirstInput
         onFinish={handleSubmit}
-       
         initialValues={values}
         modalProps={{
           destroyOnClose: true,
-        onCancel: closeModal,
+          onCancel: closeModal,
         }}
-        // submitTimeout={2000}
+        submitTimeout={2000}
       >
         <h2 className="label_content">{data.label}</h2>
         <div className="form-container">

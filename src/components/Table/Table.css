@@ -1,10 +1,10 @@
-  .table_scroll{
-    width: 200vh;
-  }
-  .flex{
-    display: flex;
-  }
-.flex_button{
+.table_scroll {
+  width: 200vh;
+}
+.flex {
+  display: flex;
+}
+.flex_button {
   display: flex;
   gap: 10px;
 }
@@ -35,7 +35,7 @@
   padding: 8px 16px;
   white-space: nowrap;
 }
-.ant-modal-content{
+.ant-modal-content {
   width: 120vh;
-  margin-right:100px
+  margin-right: 100px;
 }

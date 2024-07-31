@@ -1,11 +1,10 @@
 import TestModal from "../Form/testModal";
 import { ProTable } from "@ant-design/pro-table";
 import { Button, Modal, Space } from "antd";
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Table.css";
 import { message } from "antd";
 import { data } from "../../../thuc_tap";
-
 
 export const CustomerTable = () => {
   const getListValues = () => {
@@ -23,25 +22,24 @@ export const CustomerTable = () => {
     });
     return values;
   };
-  const actionRef = useRef()
+  const actionRef = useRef();
   const listValues = getListValues(data);
   const [dataSource, setDataSource] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
-  const [isModalVisible,setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [editingRecord, setEditingRecord] = useState(null);
   const handleEdit = (record) => {
     setEditingRecord(record);
     setIsModalVisible(true);
-    setIsAdding(false);  
-};
+    setIsAdding(false);
+  };
 
   const handleAdd = () => {
-    setEditingRecord(null);  
+    setEditingRecord(null);
     setIsModalVisible(true);
-    setIsAdding(true);  
-};
-  
+    setIsAdding(true);
+  };
 
   const columns = [
     {
@@ -226,8 +224,8 @@ export const CustomerTable = () => {
       title: "Hành động",
       render: (text, record) => (
         <div className="flex_button">
-          <Button type="primary" onClick={()=>handleEdit(record)}>
-          sua
+          <Button type="primary" onClick={() => handleEdit(record)}>
+            sua
           </Button>
           <Button danger onClick={() => handleDelete(record)}>
             Xóa
@@ -260,34 +258,35 @@ export const CustomerTable = () => {
   }, []);
   return (
     <div>
-    <ProTable
-      className="table_scroll"
-      columns={columns}
-      dataSource={dataSource}
-      actionRef={actionRef}
-      loading={loading}
-      rowKey="id"
-      search={false}
-      pagination={{ pageSize: 6 }}
-      dateFormatter="number"
-      headerTitle="Quản lý khách hàng tiềm năng"
-      toolBarRender={() => 
-      <Button type="primary" onClick={handleAdd}> 
-      thêm mới
-  </Button>}
-      scroll={{ x: 1 }}
-    />
-    <Modal
-    open={isModalVisible}
-    onCancel={() => setIsModalVisible(false)}
-    footer={null}
->
-    <TestModal 
-        record={editingRecord}
-        isAdding={isAdding} 
-        closeModal={() => setIsModalVisible(false)}
-    />
-</Modal>
-</div>
+      <ProTable
+        className="table_scroll"
+        columns={columns}
+        dataSource={dataSource}
+        actionRef={actionRef}
+        loading={loading}
+        rowKey="id"
+        search={false}
+        pagination={{ pageSize: 6 }}
+        dateFormatter="number"
+        headerTitle="Quản lý khách hàng tiềm năng"
+        toolBarRender={() => (
+          <Button type="primary" onClick={handleAdd}>
+            thêm mới
+          </Button>
+        )}
+        scroll={{ x: 1 }}
+      />
+      <Modal
+        open={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={null}
+      >
+        <TestModal
+          record={editingRecord}
+          isAdding={isAdding}
+          closeModal={() => setIsModalVisible(false)}
+        />
+      </Modal>
+    </div>
   );
 };
