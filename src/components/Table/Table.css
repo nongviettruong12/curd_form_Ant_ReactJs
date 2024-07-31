@@ -35,3 +35,7 @@
   padding: 8px 16px;
   white-space: nowrap;
 }
+.ant-modal-content{
+  width: 120vh;
+  margin-right:100px
+}

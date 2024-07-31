@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "full_name": "nông việt trường 1",
+      "full_name": "nông việt trường 1 update ",
       "birthday": "2024-07-16",
       "phone": "0888685163",
       "email": "ngu@gmail.com",
@@ -65,8 +65,7 @@
       "address": "Cầu Diễn Bắc Từ Liêm Hà Nội "
     },
     {
-      "id": "1499",
-      "full_name": "adadadada",
+      "full_name": "adadadadaa update 1",
       "phone": "6",
       "email": "cacava2@gmail.com",
       "jugde": [
@@ -78,7 +77,8 @@
       "country": "vn",
       "district": "bd",
       "city": "hn",
-      "address": "abc"
+      "address": "abc",
+      "id": "1499"
     }
   ]
 }

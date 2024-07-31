@@ -1,13 +1,13 @@
+import TestModal from "../Form/testModal";
 import { ProTable } from "@ant-design/pro-table";
 import { Button, Modal, Space } from "antd";
 import { useEffect, useState,useRef } from "react";
-import { Link } from "react-router-dom";
 import "./Table.css";
 import { message } from "antd";
 import { data } from "../../../thuc_tap";
-import TestModal from "../Form/testModal";
+
+
 export const CustomerTable = () => {
-  const actionRef = useRef();
   const getListValues = () => {
     const values = [];
     data.displayConfig.groupList.forEach((group) => {
@@ -23,12 +23,26 @@ export const CustomerTable = () => {
     });
     return values;
   };
+  const actionRef = useRef()
   const listValues = getListValues(data);
-
   const [dataSource, setDataSource] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+  const [isModalVisible,setIsModalVisible] = useState(false)
   const [editingRecord, setEditingRecord] = useState(null);
+  const handleEdit = (record) => {
+    setEditingRecord(record);
+    setIsModalVisible(true);
+    setIsAdding(false);  
+};
+
+  const handleAdd = () => {
+    setEditingRecord(null);  
+    setIsModalVisible(true);
+    setIsAdding(true);  
+};
+  
+
   const columns = [
     {
       title: "id",
@@ -212,18 +226,8 @@ export const CustomerTable = () => {
       title: "Hành động",
       render: (text, record) => (
         <div className="flex_button">
-          {/* <Link to={`/update/${record.id}`}>
-            <Button type="primary">
-              sửa
-            </Button>
-          </Link> */}
-          <Button
-            type="primary"
-            onClick={() =>{
-              <TestModal/>
-            }}
-          >
-            sửa
+          <Button type="primary" onClick={()=>handleEdit(record)}>
+          sua
           </Button>
           <Button danger onClick={() => handleDelete(record)}>
             Xóa
@@ -244,36 +248,46 @@ export const CustomerTable = () => {
     });
   };
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
       fetch("http://localhost:3000/user")
-      .then((res) => res.json())
-      .then((result) => {
-        setDataSource(result);
-        setLoading(false)
-      });
+        .then((res) => res.json())
+        .then((result) => {
+          setDataSource(result);
+          setLoading(false);
+        });
     }, 2000);
-    
   }, []);
   return (
     <div>
     <ProTable
       className="table_scroll"
       columns={columns}
-      actionRef={actionRef}
       dataSource={dataSource}
+      actionRef={actionRef}
+      loading={loading}
       rowKey="id"
       search={false}
-      loading={loading}
       pagination={{ pageSize: 6 }}
       dateFormatter="number"
       headerTitle="Quản lý khách hàng tiềm năng"
-      toolBarRender={() => [
-        <TestModal/>
-      ]}
+      toolBarRender={() => 
+      <Button type="primary" onClick={handleAdd}> 
+      thêm mới
+  </Button>}
       scroll={{ x: 1 }}
     />
-   
-    </div>
+    <Modal
+    open={isModalVisible}
+    onCancel={() => setIsModalVisible(false)}
+    footer={null}
+>
+    <TestModal 
+        record={editingRecord}
+        isAdding={isAdding} 
+        closeModal={() => setIsModalVisible(false)}
+    />
+</Modal>
+</div>
   );
 };
