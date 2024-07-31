@@ -65,7 +65,6 @@ const renderField = (field) => {
           <Select
             mode={fieldMultiSelect ? "multiple" : null}
             disabled={fieldReadOnly}
-            onSelect={handleSelect}
           >
             {listValue.map((item) => (
               <Option key={item.value} value={item.value}>
@@ -115,7 +114,6 @@ const renderField = (field) => {
           <Select
             mode={fieldMultiSelect ? "multiple" : Array}
             disabled={fieldReadOnly}
-            onSelect={handleSelect}
           >
             {listValue.map((item) => (
               <Option key={item.value} value={item.value}>
@@ -173,13 +171,6 @@ const waitTime = (time = 100) => {
       resolve(true);
     }, time);
   });
-};
-
-const handleSelect = () => {
-  const selectDropdown = document.querySelector(".ant-select-dropdown");
-  if (selectDropdown) {
-    selectDropdown.classList.add("ant-select-dropdown-hidden");
-  }
 };
 
 const TestModal = ({ record, isAdding, closeModal }) => {
